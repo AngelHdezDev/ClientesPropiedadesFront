@@ -1,0 +1,128 @@
+.marcas-bar-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    gap: 6px;
+}
+
+/* Fade lateral para indicar que hay más contenido */
+.marcas-bar-container::before,
+.marcas-bar-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 48px;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.2s;
+}
+
+.marcas-bar-container::before {
+    left: 38px;
+    background: linear-gradient(to right, #fff, transparent);
+    opacity: 0;
+    /* se activa por JS */
+}
+
+.marcas-bar-container::after {
+    right: 38px;
+    background: linear-gradient(to left, #fff, transparent);
+}
+
+.marcas-bar-container.can-scroll-left::before {
+    opacity: 1;
+}
+
+.marcas-bar-container.can-scroll-right::after {
+    opacity: 0;
+}
+
+/* Barra de marcas */
+.marcas-bar {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 4px 2px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.marcas-bar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Botones de marca */
+.marca-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border-radius: 50px;
+    border: 1.5px solid var(--dalton-border);
+    background: white;
+    color: var(--dalton-text);
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.marca-btn:hover:not(.active) {
+    border-color: var(--dalton-red);
+    color: var(--dalton-red);
+}
+
+.marca-btn.active {
+    background: var(--dalton-dark);
+    color: #fff;
+    border-color: var(--dalton-dark);
+}
+
+.marca-count-pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    opacity: 0.55;
+    transition: opacity 0.15s;
+}
+
+.marca-btn:hover .marca-count-pill,
+.marca-btn.active .marca-count-pill {
+    opacity: 1;
+}
+
+/* Flechas de navegación */
+.marcas-arrow {
+    flex-shrink: 0;
+    background: white;
+    border: 1.5px solid var(--dalton-border);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--dalton-muted);
+    font-size: 0.8rem;
+    transition: all 0.15s;
+    z-index: 2;
+}
+
+.marcas-arrow:hover {
+    border-color: var(--dalton-text);
+    color: var(--dalton-text);
+}
+
+.marcas-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}

@@ -1,0 +1,36 @@
+/* Contenedor de paginación */
+.pagination-wrap {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos para los links de Laravel */
+.pagination-wrap .pagination {
+    gap: 5px;
+}
+
+.pagination-wrap .page-item .page-link {
+    border: 1px solid #e0e0e0;
+    color: #666;
+    border-radius: 8px; /* Botones ligeramente redondeados */
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.pagination-wrap .page-item.active .page-link {
+    background-color: #28a745; /* El verde de tus precios */
+    border-color: #28a745;
+    color: white;
+}
+
+.pagination-wrap .page-item .page-link:hover {
+    background-color: #f8f9fa;
+    color: #28a745;
+}
+
+/* Ocultar el texto de "Showing 1 to 10 of..." que estorba visualmente */
+.pagination-wrap nav div:first-child {
+    display: none;
+}

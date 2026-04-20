@@ -1,0 +1,60 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Models\PropertyImage;
+
+class Property extends Model
+{
+    protected $fillable = [
+        'title',
+        'description',
+        'price',
+        'bedrooms',
+        'bathrooms',
+        'half_bathrooms',
+        'parking_spots',
+        'm2_construction',
+        'm2_land',
+        'address',
+        'neighborhood',
+        'type',
+        'status',
+        'contract_type',
+        'active',
+        'state',
+        'city',
+        'show_public_address',
+        'is_featured',
+        'seller_id',
+        'client_id',
+        'cp'
+    ];
+
+    // Relación con las fotos (similar a como lo hicimos con los autos)
+    public function images()
+    {
+        return $this->hasMany(PropertyImage::class);
+    }
+
+    public function thumbnail()
+    {
+        return $this->hasOne(PropertyImage::class, 'property_id')->where('is_main', 1);
+    }
+
+    public function amenities()
+    {
+        return $this->belongsToMany(Amenity::class);
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class, 'client_id');
+    }
+
+    public function seller()
+    {
+        return $this->belongsTo(Seller::class, 'seller_id');
+    }
+}

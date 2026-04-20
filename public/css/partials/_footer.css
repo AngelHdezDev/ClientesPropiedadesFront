@@ -1,0 +1,106 @@
+/* =============================================
+   _footer.css
+   Depende de: _base.css
+   ============================================= */
+footer {
+    background: var(--dalton-dark);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 40px 24px 24px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+.footer-social a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-social a:hover {
+    color: white;
+}
+
+.footer-col-title {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 14px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 32px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* =============================================
+   Cookie banner
+   ============================================= */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid var(--dalton-border);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    z-index: 2000;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cookie-banner p {
+    font-size: 0.8rem;
+    color: var(--dalton-muted);
+    margin: 0;
+}
+
+.cookie-banner a {
+    color: var(--dalton-blue);
+}
+
+.btn-aceptar {
+    background: var(--dalton-dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: 'Manrope', sans-serif;
+}

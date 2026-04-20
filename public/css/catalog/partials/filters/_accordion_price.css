@@ -1,0 +1,125 @@
+/* =============================================
+   Filtro de Kilometraje — dual range slider
+   ============================================= */
+
+.km-filter {
+    padding: 4px 0 20px;
+}
+
+/* Inputs Mínimo / Máximo */
+.km-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.km-input-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--dalton-muted);
+    margin-bottom: 5px;
+}
+
+.km-input-wrap input {
+    width: 100%;
+    border: 1.5px solid var(--dalton-border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--dalton-text);
+    background: white;
+    outline: none;
+    transition: border-color 0.15s;
+    cursor: default;
+}
+
+.km-input-wrap input:focus {
+    border-color: var(--dalton-blue);
+}
+
+/* ===== Slider doble ===== */
+.km-slider-wrap {
+    position: relative;
+    height: 20px;
+    margin: 0 4px;
+}
+
+/* Track base (gris) */
+.km-slider-track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--dalton-border);
+    border-radius: 4px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Rango activo (azul) */
+.km-slider-range {
+    position: absolute;
+    height: 100%;
+    background: var(--dalton-blue);
+    border-radius: 4px;
+}
+
+/* Los dos inputs range superpuestos */
+.km-thumb {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    margin: 0;
+}
+
+/* Thumb handle */
+.km-thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--dalton-blue);
+    border: 2.5px solid white;
+    box-shadow: 0 1px 6px rgba(26, 92, 229, 0.35);
+    cursor: pointer;
+    pointer-events: all;
+    transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.km-thumb::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--dalton-blue);
+    border: 2.5px solid white;
+    box-shadow: 0 1px 6px rgba(26, 92, 229, 0.35);
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.km-thumb::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 6px rgba(26, 92, 229, 0.15);
+    transform: scale(1.1);
+}
+
+/* z-index: el thumb más cercano al extremo va encima */
+.km-thumb-min {
+    z-index: 3;
+}
+
+.km-thumb-max {
+    z-index: 4;
+}

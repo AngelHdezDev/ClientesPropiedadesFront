@@ -1,0 +1,92 @@
+.filter-accordion-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 14px 0;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--dalton-text);
+    cursor: pointer;
+    border-top: 1px solid var(--dalton-border);
+}
+
+.filter-accordion-btn i.bi-chevron-up,
+.filter-accordion-btn i.bi-chevron-down {
+    font-size: 0.82rem;
+    color: var(--dalton-muted);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+/* Cuando está cerrado rotamos el chevron */
+.filter-accordion-btn.closed i.bi-chevron-up {
+    transform: rotate(180deg);
+}
+
+/* Body del acordeón */
+.filter-accordion-body {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
+    max-height: 400px;
+    /* abierto por defecto */
+    opacity: 1;
+}
+
+.filter-accordion-body.collapsed {
+    max-height: 0;
+    opacity: 0;
+}
+
+/* Grid de pills */
+.year-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 4px 0 16px;
+}
+
+.year-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    border-radius: 50px;
+    border: 1.5px solid var(--dalton-border);
+    background: white;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--dalton-text);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    padding: 0 8px;
+}
+
+.year-pill:hover {
+    border-color: var(--dalton-blue);
+    color: var(--dalton-blue);
+    background: #eff6ff;
+}
+
+.year-pill.active {
+    background: var(--dalton-blue);
+    border-color: var(--dalton-blue);
+    color: white;
+}
+
+.filter-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    /* Animación suave */
+}
+
+/* Opcional: Si quieres que la flechita rote */
+.filter-accordion-btn.open .bi-chevron-down {
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+}

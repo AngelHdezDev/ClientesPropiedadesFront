@@ -1,0 +1,46 @@
+/* =============================================
+   _brands.css
+   Depende de: _base.css
+   ============================================= */
+
+.brand-catalog-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--dalton-border);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.brand-catalog-link:hover { text-decoration: none; }
+.brand-catalog-link:hover .brand-name { text-decoration: underline; }
+
+.brand-catalog-link img {
+    width: 28px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.brand-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--dalton-blue);
+}
+
+.brand-count {
+    font-size: 0.8rem;
+    color: var(--dalton-muted);
+    margin-left: 2px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .brand-catalog-link { padding: 8px 0; }
+}
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .catalogo-item {
+        padding: 8px 0;
+    }
+}

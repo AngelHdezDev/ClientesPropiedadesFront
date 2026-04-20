@@ -1,0 +1,120 @@
+/* =============================================
+   _ubications.css
+   Depende de: _base.css
+   ============================================= */
+.ubicaciones-section {
+    background: #f8f9fa;
+}
+
+.ubicaciones-map {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1.5px solid var(--dalton-border);
+    height: 380px;
+}
+
+.ubicaciones-list {
+    overflow-y: auto;
+    background: white;
+}
+
+.ubicaciones-search {
+    padding: 12px;
+    border-bottom: 1px solid var(--dalton-border);
+    display: flex;
+    gap: 8px;
+}
+
+.ubicaciones-search input {
+    flex: 1;
+    border: 1.5px solid var(--dalton-border);
+    border-radius: 50px;
+    padding: 7px 14px;
+    font-size: 0.8rem;
+    font-family: 'Manrope', sans-serif;
+    outline: none;
+}
+
+.btn-buscar-ub {
+    background: var(--dalton-dark);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 7px 14px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+}
+
+.ubicacion-count {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    color: var(--dalton-muted);
+    border-bottom: 1px solid var(--dalton-border);
+}
+
+.ubicacion-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--dalton-border);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.ubicacion-item:hover {
+    background: var(--dalton-bg);
+}
+
+.ubicacion-item img {
+    width: 60px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    display: block;
+}
+
+.ubicacion-info h6 {
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.ubicacion-info .open {
+    color: var(--dalton-green);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.ubicacion-info address {
+    font-size: 0.7rem;
+    color: var(--dalton-muted);
+    font-style: normal;
+    line-height: 1.4;
+    margin: 3px 0 0;
+}
+
+.map-placeholder {
+    background: #e8edf2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .ubicaciones-map {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .map-placeholder {
+        height: 200px;
+    }
+}

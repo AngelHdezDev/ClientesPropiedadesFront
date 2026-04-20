@@ -1,0 +1,76 @@
+/* =============================================
+   BASE — Variables, reset, body
+   Incluir PRIMERO antes de cualquier otro CSS
+   ============================================= */
+:root {
+    --dalton-dark: #1a1a1a;
+    --dalton-red: #e8001c;
+    --dalton-blue: #1a5ce5;
+    --dalton-green: #16a34a;
+    --dalton-text: #111827;
+    --dalton-muted: #6b7280;
+    --dalton-border: #e5e7eb;
+    --dalton-bg: #f9fafb;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    color: var(--dalton-text);
+    background: #fff;
+    margin: 0;
+}
+
+/* Utilidades de sección compartidas por varios partials */
+section {
+    padding: 32px 24px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.ver-todos {
+    color: var(--dalton-blue);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ver-todos:hover {
+    text-decoration: underline;
+}
+
+.section-divider {
+    height: 1px;
+    background: var(--dalton-border);
+    margin: 0 24px;
+}
+
+/* ===== RESPONSIVE BASE ===== */
+@media (max-width: 768px) {
+    section {
+        padding: 24px 16px;
+    }
+
+    .section-divider {
+        margin: 0 16px;
+    }
+}

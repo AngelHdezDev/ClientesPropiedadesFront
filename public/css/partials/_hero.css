@@ -1,0 +1,128 @@
+/* =============================================
+   _hero.css
+   Depende de: _base.css
+   ============================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    margin: 20px 40px;
+    height: 500px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+
+.hero-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    color: white;
+    font-weight: 800;
+    font-size: 2.4rem;
+    line-height: 1.15;
+    margin-bottom: 10px;
+    max-width: 560px;
+}
+
+.hero p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+}
+
+.hero-search {
+    background: white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.hero-search i {
+    color: var(--dalton-muted);
+    flex-shrink: 0;
+}
+
+.hero-search input {
+    border: none;
+    outline: none;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.9rem;
+    width: 100%;
+    background: transparent;
+}
+
+.hero-search input::placeholder {
+    color: var(--dalton-muted);
+}
+
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 650px;
+}
+
+.hero-tag {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    border-radius: 50px;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+}
+
+.hero-tag:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hero {
+        margin: 12px;
+        height: 420px;
+        border-radius: 16px;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+}

@@ -1,0 +1,108 @@
+/* Pills de marcas */
+.fav-marcas-scroll {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+}
+.fav-marcas-scroll::-webkit-scrollbar { display: none; }
+
+.fav-marca-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid var(--dalton-border);
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    background: white;
+    color: var(--dalton-text);
+    font-family: 'Manrope', sans-serif;
+}
+.fav-marca-pill:hover { border-color: var(--dalton-red); color: var(--dalton-red); }
+.fav-brand-logo { width: 20px; height: 20px; object-fit: contain; display: block; }
+
+/* Car cards */
+.fav-cars-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+}
+.fav-cars-scroll::-webkit-scrollbar { display: none; }
+
+.fav-car-card {
+    min-width: 255px;
+    width: 255px;
+    border-radius: 16px;
+    background: white;
+    border: 1.5px solid var(--dalton-border);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+.fav-car-card:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.fav-car-card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background: #f3f4f6;
+    display: block;
+}
+
+.fav-car-card-body { padding: 14px; }
+
+.fav-car-card-title {
+    font-weight: 800;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.fav-car-card-meta {
+    font-size: 0.75rem;
+    color: var(--dalton-muted);
+    margin-bottom: 10px;
+}
+
+.fav-car-card-price {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--dalton-green);
+}
+.fav-car-card-price small {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--dalton-muted);
+}
+
+.fav-badge-liquidacion {
+    background: var(--dalton-red);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.fav-car-card-location {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.73rem;
+    color: var(--dalton-muted);
+    margin-top: 6px;
+}
