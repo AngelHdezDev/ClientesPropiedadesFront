@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propiedades | CTP Realty</title>
-    <meta name="description" content="Explora todas las propiedades disponibles en CTP Realty - Casas, departamentos, terrenos y locales comerciales en Guadalajara.">
+@section('title', 'CTP Realty | Constructora y Bienes Raíces en Guadalajara')
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+@push('styles')
     <style>
         :root {
             --ctp-blue: #0a2596;
@@ -847,33 +841,24 @@
             border-radius: 10px;
         }
     </style>
+@endpush
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades | CTP Realty</title>
+    <meta name="description" content="Explora todas las propiedades disponibles en CTP Realty - Casas, departamentos, terrenos y locales comerciales en Guadalajara.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    
 </head>
 
 <body>
-
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="{{ asset('Logo.png') }}" alt="CTP Realty Logo">
-            </a>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/propiedades" class="active">Propiedades</a></li>
-                    <li><a href="/#servicios">Servicios</a></li>
-                    <li><a href="/#nosotros">Nosotros</a></li>
-                    <li><a href="/#contacto">Contacto</a></li>
-                    <li class="lang-selector">
-                        <button class="lang-btn active">ES</button>
-                        <button class="lang-btn">EN</button>
-                        <button class="lang-btn">FR</button>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="page-hero-inner">
@@ -1202,53 +1187,7 @@
         </main>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <img src="{{ asset('Logo.png') }}" alt="CTP Realty Logo">
-                <p>CTP Realty es una empresa líder en bienes raíces y construcción en Guadalajara, comprometida con la excelencia y satisfacción de nuestros clientes desde 2009.</p>
-                <div class="footer-social">
-                    <a href="#" class="social-link">f</a>
-                    <a href="#" class="social-link">in</a>
-                    <a href="#" class="social-link">ig</a>
-                    <a href="#" class="social-link">yt</a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h4>Enlaces Rápidos</h4>
-                <ul class="footer-links">
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/propiedades">Propiedades</a></li>
-                    <li><a href="/#servicios">Servicios</a></li>
-                    <li><a href="/#nosotros">Nosotros</a></li>
-                    <li><a href="/#contacto">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Servicios</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Venta de Propiedades</a></li>
-                    <li><a href="#">Rentas</a></li>
-                    <li><a href="#">Construcción</a></li>
-                    <li><a href="#">Administración</a></li>
-                    <li><a href="#">Asesoría</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Legal</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Aviso de Privacidad</a></li>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Política de Cookies</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 CTP Realty. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
+    
     <script>
     // 1. Header scroll
     window.addEventListener('scroll', () => {
