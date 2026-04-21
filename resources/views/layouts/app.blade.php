@@ -17,9 +17,7 @@
 
 <body>
 
-    @auth
-        @include('partials.navbar')
-    @endauth
+    @include('components.navbar') {{-- Incluye el navbar en todas las páginas --}}
 
     <main>
         @yield('content') {{-- Aquí se inyectará el contenido de cada página --}}
@@ -29,6 +27,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @stack('scripts') 
+
+    @include('components.footer') {{-- Incluye el footer en todas las páginas --}}
     
 </body>
 
