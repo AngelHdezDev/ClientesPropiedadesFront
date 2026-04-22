@@ -340,121 +340,118 @@
 
     
     <script>
-    // 1. Header scroll
-    window.addEventListener('scroll', () => {
-        const header = document.getElementById('header');
-        if (header) {
-            header.classList.toggle('scrolled', window.scrollY > 100);
-        }
-    });
-
-    // 2. Lógica Maestra para Pills (Radios y Checkboxes)
-    document.querySelectorAll('.pill-label input, .num-pill input').forEach(input => {
-        
-        // Estado inicial para Radios (para poder desmarcarlos)
-        if (input.type === 'radio' && input.checked) {
-            input.dataset.wasChecked = 'true';
-        }
-
-        input.addEventListener('click', function(e) {
-            if (this.type === 'radio') {
-                if (this.dataset.wasChecked === 'true') {
-                    // DESMARCAR RADIO
-                    this.checked = false;
-                    this.dataset.wasChecked = 'false';
-                    this.parentElement.classList.remove('checked');
-                } else {
-                    // MARCAR RADIO Y LIMPIAR HERMANOS
-                    const name = this.getAttribute('name');
-                    document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
-                        r.dataset.wasChecked = 'false';
-                        r.parentElement.classList.remove('checked');
-                    });
-                    this.dataset.wasChecked = 'true';
-                    this.parentElement.classList.add('checked');
-                }
+        // 1. Header scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (header) {
+                header.classList.toggle('scrolled', window.scrollY > 100);
             }
         });
-
-        input.addEventListener('change', function() {
-            if (this.type === 'checkbox') {
-                const label = this.closest('.pill-label');
-                if (this.checked) {
-                    label.classList.add('checked');
-                } else {
-                    label.classList.remove('checked');
-                }
+        // 2. Lógica Maestra para Pills (Radios y Checkboxes)
+        document.querySelectorAll('.pill-label input, .num-pill input').forEach(input => {
+            // Estado inicial para Radios (para poder desmarcarlos)
+            if (input.type === 'radio' && input.checked) {
+                input.dataset.wasChecked = 'true';
             }
-        });
-    });
-
-    // 3. View toggle
-    function setView(mode) {
-        const grid = document.getElementById('propertiesGrid');
-        const btnGrid = document.getElementById('btnGrid');
-        const btnList = document.getElementById('btnList');
-        if (!grid) return;
-
-        if (mode === 'list') {
-            grid.classList.add('list-view');
-            if(btnList) btnList.classList.add('active');
-            if(btnGrid) btnGrid.classList.remove('active');
-        } else {
-            grid.classList.remove('list-view');
-            if(btnGrid) btnGrid.classList.add('active');
-            if(btnList) btnList.classList.remove('active');
-        }
-        localStorage.setItem('ctpView', mode);
-    }
-
-    const savedView = localStorage.getItem('ctpView');
-    if (savedView) setView(savedView);
-
-    // 4. Ordenamiento
-    function applySort(value) {
-        const url = new URL(window.location.href);
-        url.searchParams.set('orden', value);
-        url.searchParams.delete('page');
-        window.location.href = url.toString();
-    }
-
-    // 5. Eliminar un filtro específico
-    function removeFilter(key, value = null) {
-        const url = new URL(window.location.href);
-        if (value !== null) {
-            const params = url.searchParams.getAll(key);
-            url.searchParams.delete(key);
-            params.forEach(val => {
-                if (val != value) url.searchParams.append(key, val);
+            input.addEventListener('click', function(e) {
+                if (this.type === 'radio') {
+                    if (this.dataset.wasChecked === 'true') {
+                        // DESMARCAR RADIO
+                        this.checked = false;
+                        this.dataset.wasChecked = 'false';
+                        this.parentElement.classList.remove('checked');
+                    } else {
+                        // MARCAR RADIO Y LIMPIAR HERMANOS
+                        const name = this.getAttribute('name');
+                        document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+                            r.dataset.wasChecked = 'false';
+                            r.parentElement.classList.remove('checked');
+                        });
+                        this.dataset.wasChecked = 'true';
+                        this.parentElement.classList.add('checked');
+                    }
+                }
             });
-        } else {
-            url.searchParams.delete(key);
+
+            input.addEventListener('change', function() {
+                if (this.type === 'checkbox') {
+                    const label = this.closest('.pill-label');
+                    if (this.checked) {
+                        label.classList.add('checked');
+                    } else {
+                        label.classList.remove('checked');
+                    }
+                }
+            });
+        });
+
+        // 3. View toggle
+        function setView(mode) {
+            const grid = document.getElementById('propertiesGrid');
+            const btnGrid = document.getElementById('btnGrid');
+            const btnList = document.getElementById('btnList');
+            if (!grid) return;
+
+            if (mode === 'list') {
+                grid.classList.add('list-view');
+                if(btnList) btnList.classList.add('active');
+                if(btnGrid) btnGrid.classList.remove('active');
+            } else {
+                grid.classList.remove('list-view');
+                if(btnGrid) btnGrid.classList.add('active');
+                if(btnList) btnList.classList.remove('active');
+            }
+            localStorage.setItem('ctpView', mode);
         }
-        url.searchParams.delete('page');
-        window.location.href = url.toString();
-    }
 
-    // 6. Resetear filtros
-    function resetFilters() {
-        window.location.href = window.location.pathname;
-    }
+        const savedView = localStorage.getItem('ctpView');
+        if (savedView) setView(savedView);
 
-    // 7. Mobile filters
-    function toggleMobileFilters() {
-        const sidebar = document.getElementById('filterSidebar');
-        if (sidebar) {
-            sidebar.classList.toggle('mobile-open');
-            sidebar.style.display = sidebar.classList.contains('mobile-open') ? 'block' : '';
+        // 4. Ordenamiento
+        function applySort(value) {
+            const url = new URL(window.location.href);
+            url.searchParams.set('orden', value);
+            url.searchParams.delete('page');
+            window.location.href = url.toString();
         }
-    }
 
-    // 8. Favorite toggle
-    function toggleFav(e, id) {
-        e.preventDefault();
-        const btn = e.currentTarget;
-        btn.classList.toggle('active');
-        btn.textContent = btn.classList.contains('active') ? '♥' : '♡';
-    }
+        // 5. Eliminar un filtro específico
+        function removeFilter(key, value = null) {
+            const url = new URL(window.location.href);
+            if (value !== null) {
+                const params = url.searchParams.getAll(key);
+                url.searchParams.delete(key);
+                params.forEach(val => {
+                    if (val != value) url.searchParams.append(key, val);
+                });
+            } else {
+                url.searchParams.delete(key);
+            }
+            url.searchParams.delete('page');
+            window.location.href = url.toString();
+        }
+
+        // 6. Resetear filtros
+        function resetFilters() {
+            window.location.href = window.location.pathname;
+        }
+
+        // 7. Mobile filters
+        function toggleMobileFilters() {
+            const sidebar = document.getElementById('filterSidebar');
+            if (sidebar) {
+                sidebar.classList.toggle('mobile-open');
+                sidebar.style.display = sidebar.classList.contains('mobile-open') ? 'block' : '';
+            }
+        }
+
+        // 8. Favorite toggle
+        function toggleFav(e, id) {
+            e.preventDefault();
+            const btn = e.currentTarget;
+            btn.classList.toggle('active');
+            btn.textContent = btn.classList.contains('active') ? '♥' : '♡';
+        }
     </script>
 </body>
 
