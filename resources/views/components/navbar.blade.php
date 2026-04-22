@@ -2,7 +2,7 @@
 <header class="header" id="header">
     <div class="header-inner">
         <a href="/" class="logo">
-            <img src="Logo.png" alt="CTP Realty Logo">
+            <img src="{{ asset('Logo.png') }}" alt="CTP Realty Logo">
         </a>
 
         <nav>

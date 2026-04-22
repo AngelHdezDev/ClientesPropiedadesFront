@@ -2,7 +2,7 @@
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-brand">
-            <img src="Logo.png" alt="CTP Realty Logo">
+            <img src="{{ asset('Logo.png') }}" alt="CTP Realty Logo">
             <p data-i18n="footer.description">CTP Realty es una empresa líder en bienes raíces y construcción en
                 Guadalajara, comprometida con la excelencia y satisfacción de nuestros clientes desde 2009.</p>
             <div class="footer-social">
