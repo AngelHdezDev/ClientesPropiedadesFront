@@ -135,7 +135,7 @@
                             <div class="stat-label">Baños</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value">{{ $property->m2_construction }}</div>
+                            <div class="stat-value">{{ number_format($property->m2_construction, 0, ',', '.') }}</div>
                             <div class="stat-label">m² construidos</div>
                         </div>
                         <div class="stat-item">
@@ -184,14 +184,14 @@
                             <div class="stat-icon">📐</div>
                             <div>
                                 <div class="stat-label">Construcción</div>
-                                <div class="stat-value">{{ $property->m2_construction }}</div>
+                                <div class="stat-value">{{ number_format($property->m2_construction, 0, ',', '.') }}</div>
                             </div>
                         </div>
                         <div class="feature-item">
                             <div class="stat-icon">🌳</div>
                             <div>
                                 <div class="stat-label">Terreno</div>
-                                <div class="stat-value">{{ $property->m2_land }}</div>
+                                <div class="stat-value">{{ number_format($property->m2_land, 0, ',', '.') }}</div>
                             </div>
                         </div>
                         <div class="feature-item">

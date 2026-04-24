@@ -190,7 +190,7 @@
                                     <div class="property-features">
                                         <span class="property-feature">🛏️ {{ $prop->bedrooms }} Recámaras</span>
                                         <span class="property-feature">🛁 {{ $prop->bathrooms }} Baños</span>
-                                        <span class="property-feature">📐 {{ $prop->square_meters }} m²</span>
+                                        <span class="property-feature">📐 {{ number_format($prop->m2_construction, 0, ',', '.') }} m²</span>
                                     </div>
                                 </div>
                             </div>
@@ -227,7 +227,7 @@
                             <div class="property-features">
                                 <span class="property-feature">🛏️ {{ $prop->bedrooms }} Recámaras</span>
                                 <span class="property-feature">🛁 {{ $prop->bathrooms }} Baños</span>
-                                <span class="property-feature">📐 {{ $prop->square_meters }} m²</span>
+                                <span class="property-feature">📐 {{ number_format($prop->m2_construction, 0, ',', '.') }} m²</span>
                             </div>
                         </div>
                     </div>
