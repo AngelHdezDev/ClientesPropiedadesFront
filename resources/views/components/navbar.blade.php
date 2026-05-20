@@ -13,11 +13,11 @@
                 <li><a href="#nosotros" data-i18n="nav.about">Nosotros</a></li>
                 <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
 
-                <li class="lang-selector">
+                <!-- <li class="lang-selector">
                     <button class="lang-btn active" onclick="changeLanguage('es')">ES</button>
                     <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
                     <button class="lang-btn" onclick="changeLanguage('fr')">FR</button>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </div>
