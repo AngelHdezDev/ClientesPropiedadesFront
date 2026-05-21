@@ -14,7 +14,9 @@ class PropertyRepository
         if (!empty($filters['q'])) {
             $query->where(function ($q) use ($filters) {
                 $q->where('title', 'LIKE', '%' . $filters['q'] . '%')
-                    ->orWhere('neighborhood', 'LIKE', '%' . $filters['q'] . '%');
+                    ->orWhere('neighborhood', 'LIKE', '%' . $filters['q'] . '%')
+                    ->orWhere('city', 'LIKE', '%' . $filters['q'] . '%')
+                    ->orWhere('address', 'LIKE', '%' . $filters['q'] . '%');
             });
         }
 
