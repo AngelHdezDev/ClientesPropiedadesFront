@@ -62,38 +62,36 @@
     </section>
 
     <!-- Search Box -->
-    <div class="search-box">
-        <div class="search-tabs">
-            <button class="search-tab active" data-i18n="search.buy">Comprar</button>
-            <button class="search-tab" data-i18n="search.rent">Rentar</button>
-            <button class="search-tab" data-i18n="search.developments">Desarrollos</button>
-        </div>
-        <form class="search-form">
+    <div class="search-box">  
+        <form class="search-form" method="GET" action="/propiedades" id="filterForm">
             <div class="form-group">
                 <label data-i18n="search.location">Ubicación</label>
-                <input type="text" class="form-control" placeholder="¿Dónde quieres vivir?"
-                    data-i18n-placeholder="search.locationPlaceholder">
+                <input type="text" name="q" class="form-control" placeholder="¿Dónde quieres vivir?"
+                    data-i18n-placeholder="search.locationPlaceholder" value="{{ request('q') }}">
             </div>
+
             <div class="form-group">
                 <label data-i18n="search.type">Tipo de Propiedad</label>
-                <select class="form-control">
-                    <option data-i18n="search.allTypes">Todos los tipos</option>
-                    <option data-i18n="search.house">Casa</option>
-                    <option data-i18n="search.apartment">Departamento</option>
-                    <option data-i18n="search.land">Terreno</option>
-                    <option data-i18n="search.commercial">Comercial</option>
+                <select name="tipo_propiedad" class="form-control">
+                    <option value="" data-i18n="search.allTypes">Todos los tipos</option>
+                    <option value="casa" {{ request('tipo_propiedad') == 'casa' ? 'selected' : '' }}>Casa</option>
+                    <option value="departamento" {{ request('tipo_propiedad') == 'departamento' ? 'selected' : '' }}>Departamento</option>
+                    <option value="terreno" {{ request('tipo_propiedad') == 'terreno' ? 'selected' : '' }}>Terreno</option>
+                    <option value="local_comercial" {{ request('tipo_propiedad') == 'local_comercial' ? 'selected' : '' }}>Local Comercial</option>
                 </select>
             </div>
+
             <div class="form-group">
                 <label data-i18n="search.price">Precio</label>
-                <select class="form-control">
-                    <option data-i18n="search.anyPrice">Cualquier precio</option>
-                    <option>$500,000 - $1,000,000 MXN</option>
-                    <option>$1,000,000 - $2,000,000 MXN</option>
-                    <option>$2,000,000 - $5,000,000 MXN</option>
-                    <option data-i18n="search.plus5m">+ $5,000,000 MXN</option>
+                <select name="rango_precio" class="form-control">
+                    <option value="" data-i18n="search.anyPrice">Cualquier precio</option>
+                    <option value="500k-1m" {{ request('rango_precio') == '500k-1m' ? 'selected' : '' }}>$500,000 - $1,000,000 MXN</option>
+                    <option value="1m-2m" {{ request('rango_precio') == '1m-2m' ? 'selected' : '' }}>$1,000,000 - $2,000,000 MXN</option>
+                    <option value="2m-5m" {{ request('rango_precio') == '2m-5m' ? 'selected' : '' }}>$2,000,000 - $5,000,000 MXN</option>
+                    <option value="5m+" {{ request('rango_precio') == '5m+' ? 'selected' : '' }} data-i18n="search.plus5m">+ $5,000,000 MXN</option>
                 </select>
             </div>
+
             <button type="submit" class="btn btn-primary" data-i18n="search.button">Buscar</button>
         </form>
     </div>
